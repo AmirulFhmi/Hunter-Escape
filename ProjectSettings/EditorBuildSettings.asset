@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Real-time Positioning System/Scenes/SampleScene.unity
     guid: adc28652a668a9646b0352d63f41b808
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: e30e30291824ab1439153b1e30b15c4c,
+      type: 2}

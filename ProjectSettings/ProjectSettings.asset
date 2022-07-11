@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 23
-  productGUID: 00000000000000000000000000000000
+  productGUID: 9fe9c6d72dd7eec429cc711b317933c7
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -155,7 +155,7 @@ PlayerSettings:
   androidMaxAspectRatio: 16.9
   applicationIdentifier:
     Android: com.SpinMotion.RacingStarterKit
-    Standalone: unity.SpinMotion.RacingStarterKit
+    Standalone: com.DefaultCompany.Hunter-Escape
     Tizen: com.Company.ProductName
     iPhone: com.SpinMotion.RacingStarterKit
     tvOS: com.Company.ProductName
@@ -958,7 +958,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 1
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
