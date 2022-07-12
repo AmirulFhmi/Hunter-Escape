@@ -15,6 +15,7 @@ public class Powerup_Freeze : MonoBehaviour
     GameObject thisPlayer;
     GameObject player;
     PlayerInfo playerInfo;
+    int numPowerup = 0;
 
     [Header("Freeze movement speed")]
     [SerializeField] float moveSpeed = 1f;
@@ -35,7 +36,7 @@ public class Powerup_Freeze : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("Player") && !thisPlayer){
+        if (other.CompareTag("Player") && !thisPlayer && numPowerup < 3){
             //Freeze players
 
             player = other.gameObject.transform.parent.gameObject;
@@ -44,6 +45,7 @@ public class Powerup_Freeze : MonoBehaviour
             if (!playerInfo.hasShield)
             {
                 StartCoroutine(Freeze(playerInfo));
+                numPowerup++;
             }
             
         }
@@ -53,14 +55,15 @@ public class Powerup_Freeze : MonoBehaviour
     {
        
         p.ChangePlayerSpeed(moveSpeed, sprintSpeed);
-        Debug.Log("Speed has changed");
+        Debug.Log("Freeze on!");
 
         yield return new WaitForSeconds(5f);
 
         //speed back to normal after few seconds
         p.ReturnPlayerSpeed();
-        Debug.Log("Speed has changed");
+        Debug.Log("Freeze off!");
 
+        Destroy(gameObject.transform.parent.gameObject);
         yield return null;
     }
 }

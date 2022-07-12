@@ -11,11 +11,12 @@ public class Powerup_Activate : MonoBehaviour
 
     [SerializeField] private GameObject powerupRange;
     [SerializeField] public GameObject player;
+    MeshRenderer material;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        material = gameObject.GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -30,6 +31,7 @@ public class Powerup_Activate : MonoBehaviour
         {
             powerupRange.SetActive(true);
             player = other.gameObject;
+            material.enabled = false;
         }
     }
 }

@@ -9,13 +9,16 @@ public class Powerup_Shield : MonoBehaviour
     /// will called bool isShield = true at playerInfo script
     /// </summary>
 
+    [Header("Game Variable")]
     GameObject player;
     PlayerInfo playerInfo;
+    bool once = false;
+    MeshRenderer material;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        material = gameObject.GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -26,12 +29,16 @@ public class Powerup_Shield : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+
+        if (other.CompareTag("Player") && !once)
         {
             //OnShield(other.gameObject);
             player = other.gameObject.transform.parent.gameObject;
             Debug.Log(player);
+            material.enabled = false;
             StartCoroutine(OnShield(player));
+            once = true;
+            //gameObject.SetActive(false);
         }
     }
 
@@ -49,6 +56,7 @@ public class Powerup_Shield : MonoBehaviour
         playerInfo.hasShield = false;
         Debug.Log("Shield off!");
 
+        Destroy(gameObject.transform.parent.gameObject);
         yield return null;
     }
 }

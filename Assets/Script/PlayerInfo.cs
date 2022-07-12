@@ -15,6 +15,11 @@ public class PlayerInfo : MonoBehaviour
     float oldMoveSpeed;
     float oldSprintSpeed;
 
+    //for activating magnet
+    GameObject magnetPosition;
+    bool isMagnet = false;
+    float pullSpeed = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +31,16 @@ public class PlayerInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isMagnet)
+        {
+            //transform.position = Vector3.Lerp(transform.position, magnetPosition.transform.position, pullSpeed * Time.deltaTime);
+            player.transform.position = Vector3.MoveTowards(player.transform.position, magnetPosition.transform.position, pullSpeed * Time.deltaTime);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        
         
     }
 
@@ -39,6 +54,21 @@ public class PlayerInfo : MonoBehaviour
     {
         tpController.MoveSpeed = oldMoveSpeed;
         tpController.SprintSpeed = oldSprintSpeed;
+    }
+
+    public void PullPlayer(GameObject p, float speed)
+    {
+        magnetPosition = p;
+        Debug.Log(magnetPosition);
+        pullSpeed = speed;
+        tpController.enabled = false;
+        isMagnet = true;
+    }
+
+    public void ReleasePlayer()
+    {
+        isMagnet = false;
+        tpController.enabled = true;
     }
 
     //public void TriggerShieldOn()
