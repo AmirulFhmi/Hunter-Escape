@@ -31,7 +31,14 @@ public class CollectMysteryBox : MonoBehaviour
             playerProperties["scores"] = (int)playerProperties["scores"] + randomScore;
             Debug.Log((int)playerProperties["scores"]);
             PhotonNetwork.SetPlayerCustomProperties(playerProperties);
-            Destroy(gameObject);
+            StartCoroutine(Destroy());
         }
+    }
+
+    IEnumerator Destroy()
+    {
+        //play your sound
+        yield return new WaitForSeconds(1); //waits 3 seconds
+        Destroy(gameObject); //this will work after 3 seconds.
     }
 }
