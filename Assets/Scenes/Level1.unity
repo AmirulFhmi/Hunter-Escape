@@ -3132,6 +3132,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 412941139, guid: 6cf22281022380d48867125a203a7c72, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 461083529}
     - target: {fileID: 2490490221101745933, guid: 6cf22281022380d48867125a203a7c72,
         type: 3}
       propertyPath: m_RootOrder
@@ -3367,7 +3371,7 @@ PrefabInstance:
     - target: {fileID: 2776357498414740538, guid: a70841853b0e99545a7dc761ea9def4d,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2776357498414740539, guid: a70841853b0e99545a7dc761ea9def4d,
         type: 3}
@@ -4631,7 +4635,7 @@ PrefabInstance:
     - target: {fileID: 2776357498414740538, guid: a70841853b0e99545a7dc761ea9def4d,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2776357498414740539, guid: a70841853b0e99545a7dc761ea9def4d,
         type: 3}
@@ -5445,7 +5449,7 @@ PrefabInstance:
     - target: {fileID: 2776357498414740538, guid: a70841853b0e99545a7dc761ea9def4d,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2776357498414740539, guid: a70841853b0e99545a7dc761ea9def4d,
         type: 3}

@@ -81,6 +81,7 @@ MonoBehaviour:
   player: {fileID: 6470148058588760906}
   hasShield: 0
   playerCheckpoint: {fileID: 0}
+  isMany: 0
 --- !u!143 &61111681344412390
 CharacterController:
   m_ObjectHideFlags: 0

@@ -57,7 +57,7 @@ public class GameStartManager : MonoBehaviour
 
             case GameState.Start:
 
-                //spawnMysteryBoxes();
+                spawnMysteryBoxes();
                 spawnPowerups();
 
                 break;
@@ -116,7 +116,7 @@ public class GameStartManager : MonoBehaviour
 
     public IEnumerator ChangeScene()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2);
 
         isChangeScene = true;
 
