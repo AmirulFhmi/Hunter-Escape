@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using UnityEngine.UI;
+using TMPro;
 
 public class CreateandJoinRoom : MonoBehaviourPunCallbacks
 {
-    public InputField createInput;
-    public InputField joinInput;
+    public TMP_InputField createInput;
+    public TMP_InputField joinInput;
 
     public string gameScene;
 
@@ -22,9 +23,9 @@ public class CreateandJoinRoom : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(joinInput.text);
     }
 
-    public override void OnJoinedRoom()
+    /*public override void OnJoinedRoom()
     {
         SceneManager.LoadScene(gameScene);
         
-    }
+    }*/
 }

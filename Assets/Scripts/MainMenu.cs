@@ -4,15 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    public InputField userName;
-    public InputField firstName;
-    public InputField lastName;
-    public InputField password;
-    public InputField loginUserName;
-    public InputField loginPassword;
+    public TMP_InputField userName;
+    public TMP_InputField firstName;
+    public TMP_InputField lastName;
+    public TMP_InputField password;
+    public TMP_InputField loginUserName;
+    public TMP_InputField loginPassword;
     public APISystem api;
     public Canvas registerCanvas;
     public Canvas loginCanvas;
