@@ -14,6 +14,8 @@ public class PlayerInfo : MonoBehaviour
     public bool hasShield = false;
     float oldMoveSpeed;
     float oldSprintSpeed;
+    public Transform playerCheckpoint;
+    bool isTeleported = false;
 
     //for activating magnet
     GameObject magnetPosition;
@@ -40,8 +42,6 @@ public class PlayerInfo : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
-        
     }
 
     public void ChangePlayerSpeed(float newMoveSpeed, float newSprintSpeed)
@@ -69,6 +69,17 @@ public class PlayerInfo : MonoBehaviour
     {
         isMagnet = false;
         tpController.enabled = true;
+    }
+
+    public void UpdateCheckpoint(Transform p)
+    {
+        playerCheckpoint = p;
+        Debug.Log("Updated checkpoint!");
+    }
+
+    public void RespawnCheckpoint()
+    {
+        player.transform.position = new Vector3(playerCheckpoint.transform.position.x, playerCheckpoint.transform.position.y, playerCheckpoint.transform.position.z);
     }
 
     //public void TriggerShieldOn()
