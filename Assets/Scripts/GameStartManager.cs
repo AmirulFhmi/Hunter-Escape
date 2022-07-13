@@ -17,6 +17,7 @@ public class GameStartManager : MonoBehaviour
     public GameObject[] powerupsPrefab;
     public Transform[] powerupsSpawnPoints;
     public int playerCount = 0;
+    public bool isChangeScene = false;
 
     public enum GameState
     {
@@ -105,12 +106,21 @@ public class GameStartManager : MonoBehaviour
     #endregion
 
     #region EndGame
-    IEnumerator saveScore()
+    public IEnumerator saveScore()
     {
         int totalScore = (int)PhotonNetwork.LocalPlayer.CustomProperties["scores"];
         yield return new WaitForSeconds(1f);
         FindObjectOfType<APISystem>().InsertPlayerActivity(PlayerPrefs.GetString("username"), "hunter_escape_point", "add", totalScore.ToString());
         //SceneManager.LoadScene("Leaderboard");
+    }
+
+    public IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(2f);
+
+        isChangeScene = true;
+
+        yield return null;
     }
 
     #endregion

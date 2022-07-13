@@ -7,6 +7,8 @@ public class QualifyNextLevel : MonoBehaviour
     int slot = 1;
     GameStartManager gameManager;
     bool isMany = false;
+    GameObject player;
+    PlayerInfo playerInfo;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +21,7 @@ public class QualifyNextLevel : MonoBehaviour
     {
         if(slot == gameManager.playerCount)
         {
-            //panggil function tukar scene kat game manager
-            //kena ada wait for seconds sikit
-            //function tu kena ada paramter sama ada player ramai or tak
-            //if player ramai masuk scene next, else scene last
-            //
+            StartCoroutine(gameManager.ChangeScene());
 
         }
     }
@@ -36,39 +34,61 @@ public class QualifyNextLevel : MonoBehaviour
 
             if (other.CompareTag("Player"))
             {
+                player = other.gameObject.transform.parent.gameObject;
+                playerInfo = player.GetComponent<PlayerInfo>();
+
+                
+
                 if (slot <= 2)
                 {
                     //save score
+                    StartCoroutine(gameManager.saveScore());
 
                     //qualify to next level
+                    playerInfo.isMany = 2;
+
                     Debug.Log("Your position is " + slot);
                     slot++;
                 }
                 else
                 {
                     //save score
+                    StartCoroutine(gameManager.saveScore());
+
                     //not qualify
+                    playerInfo.isMany = 3;
                     slot++;
                 }
             }
         }
         else if(gameManager.playerCount > 3)
         {
+            isMany = true;
+
             if (other.CompareTag("Player"))
             {
-                isMany = true;
+                player = other.gameObject.transform.parent.gameObject;
+                playerInfo = player.GetComponent<PlayerInfo>();
+
+                
 
                 if (slot <= 4)
                 {
                     //save score
+                    StartCoroutine(gameManager.saveScore());
+
                     //qualify to next level
+                    playerInfo.isMany = 1;
                     Debug.Log("Your position is " + slot);
                     slot++;
                 }
                 else
                 {
                     //save score
+                    StartCoroutine(gameManager.saveScore());
+
                     //not qualify
+                    playerInfo.isMany = 3;
                     slot++;
                 }
             }

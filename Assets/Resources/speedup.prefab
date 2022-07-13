@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 4076485831130868298}
   - component: {fileID: 2194644685144576154}
   - component: {fileID: 9204482500587644766}
+  - component: {fileID: 8972334915514276862}
   m_Layer: 0
   m_Name: speedup
   m_TagString: Untagged
@@ -191,6 +192,20 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &8972334915514276862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736095360117354736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57aad8c62d4ee4141b91a5140f73f3f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  sprintSpeed: 6.5
 --- !u!1 &4060309128924222300
 GameObject:
   m_ObjectHideFlags: 0

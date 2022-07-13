@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 5734998495634591628}
   - component: {fileID: 5668247051485016554}
   - component: {fileID: 6854508125142580701}
+  - component: {fileID: 7649641683558965532}
   m_Layer: 0
   m_Name: backshield
   m_TagString: Untagged
@@ -188,6 +189,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.09437843
   m_Center: {x: -0.006050141, y: -1.7055608e-10, z: 4.8781023e-12}
+--- !u!114 &7649641683558965532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4962155433751172406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31cf317e2ca80e84da81740bc9522e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6563874559493263584
 GameObject:
   m_ObjectHideFlags: 0

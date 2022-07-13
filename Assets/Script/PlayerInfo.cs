@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
+using UnityEngine.SceneManagement;
 
 public class PlayerInfo : MonoBehaviour
 {
@@ -17,10 +18,14 @@ public class PlayerInfo : MonoBehaviour
     public Transform playerCheckpoint;
     bool isTeleported = false;
 
+    public int isMany = 0;
+    bool changeScene = false;
+
     //for activating magnet
     GameObject magnetPosition;
     bool isMagnet = false;
     float pullSpeed = 0;
+    GameStartManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +33,8 @@ public class PlayerInfo : MonoBehaviour
         tpController = player.GetComponent<ThirdPersonController>();
         oldMoveSpeed = tpController.MoveSpeed;
         oldSprintSpeed = tpController.SprintSpeed;
+
+        gameManager = GameStartManager.Instance;
     }
 
     // Update is called once per frame
@@ -37,6 +44,11 @@ public class PlayerInfo : MonoBehaviour
         {
             //transform.position = Vector3.Lerp(transform.position, magnetPosition.transform.position, pullSpeed * Time.deltaTime);
             player.transform.position = Vector3.MoveTowards(player.transform.position, magnetPosition.transform.position, pullSpeed * Time.deltaTime);
+        }
+
+        if (gameManager.isChangeScene)
+        {
+            ChangeScene();
         }
     }
 
@@ -80,6 +92,22 @@ public class PlayerInfo : MonoBehaviour
     public void RespawnCheckpoint()
     {
         player.transform.position = new Vector3(playerCheckpoint.transform.position.x, playerCheckpoint.transform.position.y, playerCheckpoint.transform.position.z);
+    }
+
+    public void ChangeScene()
+    {
+        if (isMany == 1)
+        {
+            SceneManager.LoadScene("Level2");
+        }
+        else if (isMany == 2)
+        {
+            SceneManager.LoadScene("Level2");
+        }
+        else if (isMany == 3)
+        {
+            SceneManager.LoadScene("Leaderboard");
+        }
     }
 
     //public void TriggerShieldOn()
