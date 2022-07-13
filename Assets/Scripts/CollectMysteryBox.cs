@@ -16,7 +16,7 @@ public class CollectMysteryBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerProperties["scores"] = 0;
+        //playerProperties["scores"] = 0;
         randomScore = Random.Range(5, 50);
         gmanager = GameObject.Find("GameManager");
         gameManager = gmanager.GetComponent<GameStartManager>();
@@ -33,9 +33,19 @@ public class CollectMysteryBox : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            int currentScore;
+            if (PhotonNetwork.LocalPlayer.CustomProperties["scores"] == null)
+            {
+                 currentScore = 0;
+            }
+            else
+            {
+                currentScore = (int)PhotonNetwork.LocalPlayer.CustomProperties["scores"];
+            }
+             
             score.text = "+ " + randomScore.ToString();
             Debug.Log(score.text);
-            playerProperties["scores"] = (int)playerProperties["scores"] + randomScore;
+            playerProperties["scores"] = currentScore + randomScore;
             Debug.Log((int)playerProperties["scores"]);
             PhotonNetwork.SetPlayerCustomProperties(playerProperties);
 
