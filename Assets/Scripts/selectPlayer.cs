@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using UnityEngine.SceneManagement;
 
 public class selectPlayer : MonoBehaviour
 {
     public GameObject[] characters;
     public static int i = 0;
-    ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
-
     // Start is called before the first frame update
     void Start()
     {
@@ -43,12 +39,10 @@ public class selectPlayer : MonoBehaviour
         characters[i].SetActive(true);
     }
 
-    public void SelectCharacter()
+    public void SpawnCharacter()
     {
-        playerProperties["playerAvatar"] = i;
-        Debug.Log("i" + i);
-        Debug.Log((int)playerProperties["playerAvatar"]);
-        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
-        SceneManager.LoadScene("CreateandJoin");
+        //int charnum = gameFlow.instance.characterNum;
+
+        //charnum = i;
     }
 }

@@ -15,7 +15,7 @@ public class APISystem : MonoBehaviour
     public ContainerA containerA; //user details
     public ContainerB containerB; //leaderboard details
 
-    public TMP_InputField password;
+    public InputField password;
 
     public void GetLeaderboard()
     {
@@ -127,8 +127,7 @@ public class APISystem : MonoBehaviour
                 if(password.text == containerA.message.id)
                 {
                     Debug.Log("Success");
-                    ConnecttoServer.OnClickConnect();
-                    //Application.LoadLevel("Main Menu");
+                    Application.LoadLevel("MainMenu");
                     //SceneManager.LoadScene("MainMenu");
                 }
                 else

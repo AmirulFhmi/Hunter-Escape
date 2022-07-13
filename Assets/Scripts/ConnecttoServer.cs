@@ -11,23 +11,15 @@ public class ConnecttoServer : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.ConnectUsingSettings();
     }
-    public static void OnClickConnect()
-    {
-        PhotonNetwork.NickName = PlayerPrefs.GetString("username");
-        Debug.Log("connecting..");
-        PhotonNetwork.ConnectUsingSettings();
-        PhotonNetwork.AutomaticallySyncScene = true;
-        SceneManager.LoadScene("Main Menu");
-    }
 
     public override void OnConnectedToMaster()
     {
-        SceneManager.LoadScene("SelectCharacter");
-        //PhotonNetwork.JoinLobby();
+        PhotonNetwork.JoinLobby();
     }
 
     public override void OnJoinedLobby()
     {
         Debug.Log("Entering the lobby");
+        //SceneManager.LoadScene("MainMenu");
     }
 }
