@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QualifyNextLevel : MonoBehaviour
+public class QualifyFinalLevel : MonoBehaviour
 {
     int slot = 1;
     GameStartManager gameManager;
@@ -17,7 +17,7 @@ public class QualifyNextLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(slot == gameManager.playerCount)
+        if (slot == 4)
         {
             //panggil function tukar scene kat game manager
             //kena ada wait for seconds sikit
@@ -30,13 +30,10 @@ public class QualifyNextLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameManager.playerCount <= 3)
-        {
-            isMany = false;
-
             if (other.CompareTag("Player"))
             {
-                if (slot <= 2)
+            isMany = true;
+                if (slot <= 3)
                 {
                     //save score
 
@@ -48,30 +45,9 @@ public class QualifyNextLevel : MonoBehaviour
                 {
                     //save score
                     //not qualify
-                    slot++;
-                }
-            }
-        }
-        else if(gameManager.playerCount > 3)
-        {
-            if (other.CompareTag("Player"))
-            {
-                isMany = true;
-
-                if (slot <= 4)
-                {
-                    //save score
-                    //qualify to next level
                     Debug.Log("Your position is " + slot);
                     slot++;
                 }
-                else
-                {
-                    //save score
-                    //not qualify
-                    slot++;
-                }
             }
-        }
     }
 }
