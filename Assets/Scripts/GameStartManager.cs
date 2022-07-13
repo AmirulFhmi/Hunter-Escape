@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class GameStartManager : MonoBehaviour
 {
@@ -104,7 +105,13 @@ public class GameStartManager : MonoBehaviour
     #endregion
 
     #region EndGame
-
+    IEnumerator saveScore()
+    {
+        int totalScore = (int)PhotonNetwork.LocalPlayer.CustomProperties["scores"];
+        yield return new WaitForSeconds(1f);
+        FindObjectOfType<APISystem>().InsertPlayerActivity(PlayerPrefs.GetString("username"), "hunter_escape_point", "add", totalScore.ToString());
+        //SceneManager.LoadScene("Leaderboard");
+    }
 
     #endregion
 }
