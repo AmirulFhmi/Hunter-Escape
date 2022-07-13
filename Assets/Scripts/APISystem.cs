@@ -127,7 +127,8 @@ public class APISystem : MonoBehaviour
                 if(password.text == containerA.message.id)
                 {
                     Debug.Log("Success");
-                    Application.LoadLevel("Main Menu");
+                    ConnecttoServer.OnClickConnect();
+                    //Application.LoadLevel("Main Menu");
                     //SceneManager.LoadScene("MainMenu");
                 }
                 else
