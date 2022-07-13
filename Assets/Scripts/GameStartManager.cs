@@ -12,7 +12,9 @@ public class GameStartManager : MonoBehaviour
     [SerializeField] bool isStarting = false;
     [SerializeField] bool isFinished = false;
     public GameObject mysteryBoxPrefab;
-    public Transform[] spawnPoints;
+    public Transform[] mysteryBoxSpawnPoints;
+    public GameObject[] powerupsPrefab;
+    public Transform[] powerupsSpawnPoints;
     public int playerCount = 0;
 
     public enum GameState
@@ -53,8 +55,8 @@ public class GameStartManager : MonoBehaviour
 
             case GameState.Start:
 
-                spawnMysteryBoxes();
-                
+                //spawnMysteryBoxes();
+                spawnPowerups();
 
                 break;
 
@@ -77,14 +79,27 @@ public class GameStartManager : MonoBehaviour
         for(int i =0; i<3; i++)
         {
             Debug.Log(i);
-            int randomNumber = Random.Range(0, spawnPoints.Length);
-            Transform spawnPoint = spawnPoints[randomNumber];
+            int randomNumber = Random.Range(0, mysteryBoxSpawnPoints.Length);
+            Transform spawnPoint = mysteryBoxSpawnPoints[randomNumber];
             //GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
             PhotonNetwork.Instantiate(mysteryBoxPrefab.name, spawnPoint.position, Quaternion.identity);
         }
        
     }
 
+    public void spawnPowerups()
+    {
+        for (int i = 0; i<3; i++)
+        {
+            Debug.Log(i);
+            int randomNumber = Random.Range(0, powerupsSpawnPoints.Length);
+            int randomPrefab = Random.Range(0, powerupsPrefab.Length);
+            Transform spawnPoint = mysteryBoxSpawnPoints[randomNumber];
+            //GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
+            PhotonNetwork.Instantiate(powerupsPrefab[randomPrefab].name, spawnPoint.position, Quaternion.identity);
+        }
+
+    }
 
     #endregion
 
