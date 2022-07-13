@@ -63,7 +63,7 @@ public class Powerup_Freeze : MonoBehaviour
         p.ReturnPlayerSpeed();
         Debug.Log("Freeze off!");
 
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(gameObject);
         yield return null;
     }
 }

@@ -9,11 +9,18 @@ public class CollectMysteryBox : MonoBehaviour
     ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
     int randomScore;
     public TMP_Text score;
+    GameObject gmanager;
+    GameStartManager gameManager;
+    //TMP_Text playerScore;
+    //[SerializeField] int playeractualscore = 0;
     // Start is called before the first frame update
     void Start()
     {
         playerProperties["scores"] = 0;
         randomScore = Random.Range(5, 50);
+        gmanager = GameObject.Find("GameManager");
+        gameManager = gmanager.GetComponent<GameStartManager>();
+        //playerScore = gameManager.scoreText;
     }
 
     // Update is called once per frame
@@ -31,6 +38,12 @@ public class CollectMysteryBox : MonoBehaviour
             playerProperties["scores"] = (int)playerProperties["scores"] + randomScore;
             Debug.Log((int)playerProperties["scores"]);
             PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+
+            gameManager.AddScoreGame(randomScore);
+
+            //playeractualscore = playeractualscore + randomScore;
+            //playerScore.text = playeractualscore.ToString();
+
             StartCoroutine(Destroy());
         }
     }

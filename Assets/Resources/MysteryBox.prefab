@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 5007842438889684560}
   - component: {fileID: 1423002174361228574}
   - component: {fileID: 1423002174361228573}
+  - component: {fileID: 2564252871782442507}
   m_Layer: 0
   m_Name: MysteryBox
   m_TagString: Untagged
@@ -232,8 +233,8 @@ Transform:
   m_GameObject: {fileID: 1266235464098924617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 65.8, y: 0.51, z: 27.4}
-  m_LocalScale: {x: 0.26439154, y: 0.26439154, z: 0.26439154}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7379596093912629869}
   - {fileID: 3421674682153305501}
@@ -289,6 +290,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 926342962}
+--- !u!114 &2564252871782442507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266235464098924617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4249356cba0f1c439085bb3e8f51e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1802077400683536362
 GameObject:
   m_ObjectHideFlags: 0

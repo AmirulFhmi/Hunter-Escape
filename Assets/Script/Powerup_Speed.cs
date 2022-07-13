@@ -13,7 +13,7 @@ public class Powerup_Speed : MonoBehaviour
     GameObject player;
     PlayerInfo playerInfo;
     bool once = false;
-    MeshRenderer material;
+    [SerializeField] SkinnedMeshRenderer material;
 
     [Header("Speed up speed:")]
     [SerializeField] float moveSpeed = 3f;
@@ -22,7 +22,7 @@ public class Powerup_Speed : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        material = gameObject.GetComponent<MeshRenderer>();
+        //material = gameObject.GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -54,7 +54,7 @@ public class Powerup_Speed : MonoBehaviour
         p.ReturnPlayerSpeed();
         Debug.Log("Speed up off!");
 
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(gameObject);
         yield return null;
     }
 }

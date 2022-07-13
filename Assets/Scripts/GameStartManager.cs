@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameStartManager : MonoBehaviour
 {
@@ -18,6 +19,15 @@ public class GameStartManager : MonoBehaviour
     public Transform[] powerupsSpawnPoints;
     public int playerCount = 0;
     public bool isChangeScene = false;
+
+    public TMP_Text scoreText;
+    public TMP_Text panelPositionText;
+    public TMP_Text panelScoreText;
+
+    public GameObject scorePanel;
+    public GameObject positionPanel;
+
+    [SerializeField] int playeractualscore = 0;
 
     public enum GameState
     {
@@ -57,13 +67,15 @@ public class GameStartManager : MonoBehaviour
 
             case GameState.Start:
 
+                SpawnScorePanel();
                 spawnMysteryBoxes();
                 spawnPowerups();
 
                 break;
 
             case GameState.End:
-
+                HideScorePanel();
+                SpawnPositionPanel();
 
                 break;
         }
@@ -76,6 +88,12 @@ public class GameStartManager : MonoBehaviour
     }
 
     #region StartGame
+
+    public void SpawnScorePanel()
+    {
+        scorePanel.SetActive(true);
+    }
+
     public void spawnMysteryBoxes()
     {
         for(int i =0; i<3; i++)
@@ -96,16 +114,33 @@ public class GameStartManager : MonoBehaviour
             Debug.Log(i);
             int randomNumber = Random.Range(0, powerupsSpawnPoints.Length);
             int randomPrefab = Random.Range(0, powerupsPrefab.Length);
-            Transform spawnPoint = mysteryBoxSpawnPoints[randomNumber];
+            Transform spawnPoint = powerupsSpawnPoints[randomNumber];
             //GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
             PhotonNetwork.Instantiate(powerupsPrefab[randomPrefab].name, spawnPoint.position, Quaternion.identity);
         }
 
     }
 
+    public void AddScoreGame(int s)
+    {
+        playeractualscore = playeractualscore + s;
+        scoreText.text = playeractualscore.ToString();
+    }
+
     #endregion
 
     #region EndGame
+
+    public void HideScorePanel()
+    {
+        scorePanel.SetActive(false);
+    }
+
+    public void SpawnPositionPanel()
+    {
+        positionPanel.SetActive(true);
+    }
+
     public IEnumerator saveScore()
     {
         int totalScore = (int)PhotonNetwork.LocalPlayer.CustomProperties["scores"];
@@ -116,11 +151,19 @@ public class GameStartManager : MonoBehaviour
 
     public IEnumerator ChangeScene()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(6f);
 
         isChangeScene = true;
 
         yield return null;
+    }
+
+    public void SetPositionPanel(int s)
+    {
+        string t = s.ToString();
+        panelPositionText.text = t;
+        panelScoreText.text = scoreText.text;
+
     }
 
     #endregion

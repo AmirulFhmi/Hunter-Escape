@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class QualifyNextLevel : MonoBehaviour
 {
-    int slot = 1;
+    int slot = 0;
     [SerializeField] GameStartManager gameManager;
     bool isMany = false;
     GameObject player;
@@ -43,9 +43,10 @@ public class QualifyNextLevel : MonoBehaviour
                 {
                     //save score
                     StartCoroutine(gameManager.saveScore());
-
+                    gameManager.SetPositionPanel(slot+1);
+                    gameManager.ChangeGameState(GameStartManager.GameState.End);
                     //qualify to next level
-                    playerInfo.isMany = 2;
+                    playerInfo.isMany = 1;
 
                     Debug.Log("Your position is " + slot);
                     slot++;
@@ -54,7 +55,8 @@ public class QualifyNextLevel : MonoBehaviour
                 {
                     //save score
                     StartCoroutine(gameManager.saveScore());
-
+                    gameManager.SetPositionPanel(slot+1);
+                    gameManager.ChangeGameState(GameStartManager.GameState.End);
                     //not qualify
                     playerInfo.isMany = 3;
                     slot++;
@@ -76,17 +78,20 @@ public class QualifyNextLevel : MonoBehaviour
                 {
                     //save score
                     StartCoroutine(gameManager.saveScore());
-
+                    gameManager.SetPositionPanel(slot+1);
+                    gameManager.ChangeGameState(GameStartManager.GameState.End);
                     //qualify to next level
                     playerInfo.isMany = 1;
                     Debug.Log("Your position is " + slot);
+
                     slot++;
                 }
                 else
                 {
                     //save score
                     StartCoroutine(gameManager.saveScore());
-
+                    gameManager.SetPositionPanel(slot+1);
+                    gameManager.ChangeGameState(GameStartManager.GameState.End);
                     //not qualify
                     playerInfo.isMany = 3;
                     slot++;

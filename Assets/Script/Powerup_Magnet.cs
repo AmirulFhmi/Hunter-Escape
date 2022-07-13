@@ -58,7 +58,7 @@ public class Powerup_Magnet : MonoBehaviour
         p.ReleasePlayer();
         Debug.Log("Magnet off!");
 
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(gameObject);
 
         yield return null;
     }

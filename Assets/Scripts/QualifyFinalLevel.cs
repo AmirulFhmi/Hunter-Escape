@@ -1,30 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class QualifyFinalLevel : MonoBehaviour
 {
-    int slot = 1;
-    GameStartManager gameManager;
+    int slot = 0;
+    [SerializeField] GameStartManager gameManager;
     bool isMany = false;
+    GameObject player;
+    PlayerInfo playerInfo;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameStartManager.Instance;
+        //gameManager = GameStartManager.Instance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (slot == 4)
+        if (slot == PhotonNetwork.CurrentRoom.PlayerCount)
         {
-            //panggil function tukar scene kat game manager
-            //kena ada wait for seconds sikit
-            //function tu kena ada paramter sama ada player ramai or tak
-            //if player ramai masuk scene next, else scene last
-            //
-
+            StartCoroutine(gameManager.ChangeScene());
         }
     }
 
@@ -32,22 +30,35 @@ public class QualifyFinalLevel : MonoBehaviour
     {
             if (other.CompareTag("Player"))
             {
-            isMany = true;
-                if (slot <= 3)
-                {
-                    //save score
 
-                    //qualify to next level
-                    Debug.Log("Your position is " + slot);
-                    slot++;
-                }
-                else
-                {
-                    //save score
-                    //not qualify
-                    Debug.Log("Your position is " + slot);
-                    slot++;
-                }
+                player = other.gameObject.transform.parent.gameObject;
+                playerInfo = player.GetComponent<PlayerInfo>();
+
+                isMany = true;
+
+                    if (slot <= 3)
+                    {
+                        //save score
+                        StartCoroutine(gameManager.saveScore());
+                        gameManager.SetPositionPanel(slot + 1);
+                        gameManager.ChangeGameState(GameStartManager.GameState.End);
+                //qualify to next level
+                playerInfo.isMany = 2;
+                        Debug.Log("Your position is " + slot);
+                        slot++;
+                    }
+                    else
+                    {
+                        //save score
+                        StartCoroutine(gameManager.saveScore());
+                        gameManager.SetPositionPanel(slot + 1);
+                        gameManager.ChangeGameState(GameStartManager.GameState.End);
+
+                //not qualify
+                playerInfo.isMany = 3;
+                        Debug.Log("Your position is " + slot);
+                        slot++;
+                    }
             }
     }
 }

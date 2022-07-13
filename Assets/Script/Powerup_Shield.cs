@@ -13,12 +13,12 @@ public class Powerup_Shield : MonoBehaviour
     GameObject player;
     PlayerInfo playerInfo;
     bool once = false;
-    MeshRenderer material;
+    [SerializeField] SkinnedMeshRenderer material;
 
     // Start is called before the first frame update
     void Start()
     {
-        material = gameObject.GetComponent<MeshRenderer>();
+        //material = gameObject.GetComponent<SkinnedMeshRenderer>();
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class Powerup_Shield : MonoBehaviour
         playerInfo.hasShield = false;
         Debug.Log("Shield off!");
 
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(gameObject);
         yield return null;
     }
 }

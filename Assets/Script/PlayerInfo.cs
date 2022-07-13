@@ -102,7 +102,7 @@ public class PlayerInfo : MonoBehaviour
         }
         else if (isMany == 2)
         {
-            SceneManager.LoadScene("Level2");
+            SceneManager.LoadScene("Level3");
         }
         else if (isMany == 3)
         {
