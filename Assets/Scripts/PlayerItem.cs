@@ -8,7 +8,7 @@ using Photon.Realtime;
 
 public class PlayerItem : MonoBehaviour
 {
-    public TMP_Text playerName;
+    public Text playerName;
     Player player;
     // Start is called before the first frame update
     void Start()
