@@ -40,6 +40,8 @@ public class FinalLevel : MonoBehaviour
             {
                 //save score
                 StartCoroutine(gameManager.saveScore());
+                gameManager.SetPositionPanel(slot + 1);
+                gameManager.ChangeGameState(GameStartManager.GameState.End);
 
                 //qualify to next level
                 playerInfo.isMany = 3;
@@ -50,6 +52,8 @@ public class FinalLevel : MonoBehaviour
             {
                 //save score
                 StartCoroutine(gameManager.saveScore());
+                gameManager.SetPositionPanel(slot + 1);
+                gameManager.ChangeGameState(GameStartManager.GameState.End);
 
                 //not qualify
                 playerInfo.isMany = 3;
