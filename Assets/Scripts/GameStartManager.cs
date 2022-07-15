@@ -26,6 +26,7 @@ public class GameStartManager : MonoBehaviour
 
     public GameObject scorePanel;
     public GameObject positionPanel;
+    public int curPlayers = 0;
 
     [SerializeField] int playeractualscore = 0;
 
