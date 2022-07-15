@@ -11,8 +11,8 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
     public string username;
     public CharacterController controller;
     public Vector3 playerVelocity;
-    public float playerSpeed = 10;
-    public float jumpHeight = 30f;
+    public float playerSpeed = 5;
+    public float jumpHeight = 1f;
     public float gravityValue = -9.81f;
     public float rotationSpeed = 100.0F;
 
@@ -79,8 +79,9 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
                 gameObject.transform.forward = move;
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("Jump"))
             {
+                playerVelocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
                 anim.SetTrigger("Jump");
             }
 

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325351016311800257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.99, z: 0}
   m_LocalScale: {x: 1.45, y: 1.45, z: 1.45}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -50,7 +50,7 @@ Animator:
   m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1857,10 +1857,8 @@ GameObject:
   - component: {fileID: 1024360616559420456}
   - component: {fileID: 246389558149927223}
   - component: {fileID: 2042586111}
-  - component: {fileID: 2042586110}
   - component: {fileID: 1918473793495512468}
   - component: {fileID: 3715482835638415993}
-  - component: {fileID: 8106547102087673739}
   m_Layer: 0
   m_Name: TestPanda
   m_TagString: Untagged
@@ -1900,13 +1898,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'skin_joints'\n\tTransform 'r_finger_d_inter'\n\tTransform
-    'r_elbow'\n\tTransform 'r_arm'\n\tTransform 'r_finger_a_prox'\n\tTransform 'l_finger_d_prox'\n\tTransform
-    'chest'\n\tTransform 'l_finger_c_prox'\n\tTransform 'l_leg'\n\tTransform 'l_finger_d_inter'\n\tand
-    more ...\n\tFrom animation clip 'mixamo.com'\n\tFrom animation clip 'mixamo.com'\n\tFrom
-    animation clip 'mixamo.com'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -1929,7 +1921,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 0
   ObservedComponents:
-  - {fileID: 8106547102087673739}
+  - {fileID: 2042586111}
   - {fileID: 246389558149927223}
   sceneViewId: 0
   InstantiationId: 0
@@ -1950,8 +1942,8 @@ MonoBehaviour:
   username: 
   controller: {fileID: 3715482835638415993}
   playerVelocity: {x: 0, y: 0, z: 0}
-  playerSpeed: 10
-  jumpHeight: 30
+  playerSpeed: 5
+  jumpHeight: 1
   gravityValue: -9.81
   rotationSpeed: 100
   Speed: 3
@@ -1972,19 +1964,6 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!65 &2042586110
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5042710515269189915}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2.2258933, z: 1}
-  m_Center: {x: 0, y: 1.1531955, z: 0}
 --- !u!114 &1918473793495512468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,10 +1980,10 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: Run
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: Jump
   m_SynchronizeLayers:
   - SynchronizeType: 0
@@ -2020,29 +1999,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 2.3
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8106547102087673739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5042710515269189915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1 &5342309031911627796
 GameObject:
   m_ObjectHideFlags: 0
