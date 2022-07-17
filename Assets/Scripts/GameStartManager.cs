@@ -17,16 +17,17 @@ public class GameStartManager : MonoBehaviour
     public Transform[] mysteryBoxSpawnPoints;
     public GameObject[] powerupsPrefab;
     public Transform[] powerupsSpawnPoints;
+    public GameObject startLine;
     public int playerCount = 0;
     public bool isChangeScene = false;
 
     public TMP_Text scoreText;
     public TMP_Text panelPositionText;
     public TMP_Text panelScoreText;
+    public TMP_Text countdownText;
 
     public GameObject scorePanel;
     public GameObject positionPanel;
-    public int curPlayers = 0;
 
     [SerializeField] int playeractualscore = 0;
 
@@ -51,9 +52,30 @@ public class GameStartManager : MonoBehaviour
 
         playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
 
-        ChangeGameState(GameState.Start);
-        
+        Debug.Log(GameObject.FindGameObjectsWithTag("Player").Length);
+        Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
+
+        if (GameObject.FindGameObjectsWithTag("Player").Length == PhotonNetwork.CurrentRoom.PlayerCount)
+        {
+            StartCoroutine(StartTimer());
+        }
+
+        //ChangeGameState(GameState.Start);
+
     }
+
+   public IEnumerator StartTimer()
+   {
+        for(int i=1; i<4;  i++)
+        {
+            countdownText.text = i.ToString();
+            yield return new WaitForSeconds(2);
+        }
+        countdownText.text = null;
+        startLine.SetActive(false);
+        ChangeGameState(GameState.Start);
+        yield return null;
+   }
 
     // Update is called once per frame
     void Update()

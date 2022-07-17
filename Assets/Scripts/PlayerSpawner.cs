@@ -12,9 +12,9 @@ public class PlayerSpawner : MonoBehaviour
     {
         int randomNumber = Random.Range(0, spawnPoints.Length);
         Transform spawnPoint = spawnPoints[randomNumber];
-        //GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
-        //PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
-        PhotonNetwork.Instantiate("TestPanda", spawnPoint.position, Quaternion.identity);
+        GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
+        PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
+        //PhotonNetwork.Instantiate("TestFrog", spawnPoint.position, spawnPoint.rotation);
     }
 
     // Update is called once per frame

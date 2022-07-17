@@ -331,7 +331,7 @@ MonoBehaviour:
   gravityValue: -9.81
   rotationSpeed: 100
   Speed: 3
-  camOffset: {x: 0, y: 2, z: -10}
+  camOffset: {x: 0, y: 2, z: -6}
 --- !u!114 &8316361279481375016
 MonoBehaviour:
   m_ObjectHideFlags: 0

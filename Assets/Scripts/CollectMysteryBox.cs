@@ -51,9 +51,6 @@ public class CollectMysteryBox : MonoBehaviour
 
             gameManager.AddScoreGame(randomScore);
 
-            //playeractualscore = playeractualscore + randomScore;
-            //playerScore.text = playeractualscore.ToString();
-
             StartCoroutine(Destroy());
         }
     }
@@ -61,7 +58,7 @@ public class CollectMysteryBox : MonoBehaviour
     IEnumerator Destroy()
     {
         //play your sound
-        yield return new WaitForSeconds(1); //waits 3 seconds
+        yield return new WaitForSeconds(.3f); //waits 3 seconds
         Destroy(gameObject); //this will work after 3 seconds.
     }
 }

@@ -1302,7 +1302,7 @@ GameObject:
   - component: {fileID: 6136295047097905005}
   m_Layer: 0
   m_Name: TestFrog
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1389,7 +1389,7 @@ MonoBehaviour:
   gravityValue: -9.81
   rotationSpeed: 100
   Speed: 3
-  camOffset: {x: 0, y: 2, z: -10}
+  camOffset: {x: 0, y: 2, z: -6}
 --- !u!114 &1789844075422883607
 MonoBehaviour:
   m_ObjectHideFlags: 0
