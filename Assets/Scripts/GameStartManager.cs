@@ -52,8 +52,8 @@ public class GameStartManager : MonoBehaviour
 
         playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
 
-        Debug.Log(GameObject.FindGameObjectsWithTag("Player").Length);
-        Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
+        Debug.Log("Player: "+GameObject.FindGameObjectsWithTag("Player").Length);
+        Debug.Log("Room: " + PhotonNetwork.CurrentRoom.PlayerCount);
 
         if (GameObject.FindGameObjectsWithTag("Player").Length == PhotonNetwork.CurrentRoom.PlayerCount)
         {

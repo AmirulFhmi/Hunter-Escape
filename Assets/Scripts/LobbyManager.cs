@@ -93,7 +93,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickPlayButton()
     {
-        PhotonNetwork.LoadLevel("Level2New");
+        PhotonNetwork.LoadLevel("Level3New");
         //PhotonNetwork.LoadLevel("Test");
     }
 }
