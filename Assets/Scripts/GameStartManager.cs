@@ -55,10 +55,10 @@ public class GameStartManager : MonoBehaviour
         Debug.Log("Player: "+GameObject.FindGameObjectsWithTag("Player").Length);
         Debug.Log("Room: " + PhotonNetwork.CurrentRoom.PlayerCount);
 
-        if (GameObject.FindGameObjectsWithTag("Player").Length == PhotonNetwork.CurrentRoom.PlayerCount)
-        {
+        //if (GameObject.FindGameObjectsWithTag("Player").Length == PhotonNetwork.CurrentRoom.PlayerCount)
+        //{
             StartCoroutine(StartTimer());
-        }
+        //}
 
         //ChangeGameState(GameState.Start);
 
@@ -80,7 +80,7 @@ public class GameStartManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void CheckGameState()
