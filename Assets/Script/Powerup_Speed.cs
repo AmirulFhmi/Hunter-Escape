@@ -16,8 +16,8 @@ public class Powerup_Speed : MonoBehaviour
     [SerializeField] SkinnedMeshRenderer material;
 
     [Header("Speed up speed:")]
-    [SerializeField] float moveSpeed = 3f;
-    [SerializeField] float sprintSpeed = 6.5f;
+    [SerializeField] float moveSpeed = 8f;
+    //[SerializeField] float sprintSpeed = 6.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class Powerup_Speed : MonoBehaviour
     {
         if(other.CompareTag("Player") && !once)
         {
-            player = other.gameObject.transform.parent.gameObject;
+            player = other.gameObject;
             playerInfo = player.GetComponent<PlayerInfo>();
             Debug.Log(player);
             material.enabled = false;
@@ -46,7 +46,7 @@ public class Powerup_Speed : MonoBehaviour
 
     IEnumerator OnSpeed(PlayerInfo p)
     {
-        p.ChangePlayerSpeed(moveSpeed, sprintSpeed);
+        p.ChangePlayerSpeed(moveSpeed);
         Debug.Log("Speed up on!");
 
         yield return new WaitForSeconds(5f);

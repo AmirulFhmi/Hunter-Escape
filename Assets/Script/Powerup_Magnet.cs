@@ -36,7 +36,7 @@ public class Powerup_Magnet : MonoBehaviour
     {
         if(other.CompareTag("Player") && !thisPlayer && numPowerup < 3)
         {
-            player = other.gameObject.transform.parent.gameObject;
+            player = other.gameObject;
             playerInfo = player.GetComponent<PlayerInfo>();
 
             if (!playerInfo.hasShield)

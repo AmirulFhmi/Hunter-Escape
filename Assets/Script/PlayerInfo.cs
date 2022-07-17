@@ -11,12 +11,12 @@ public class PlayerInfo : MonoBehaviour
     /// </summary>
 
     [SerializeField] GameObject player;
-    ThirdPersonController tpController;
+    PlayerScripts playerController;
     public bool hasShield = false;
     float oldMoveSpeed;
-    float oldSprintSpeed;
+    //float oldSprintSpeed;
     public Transform playerCheckpoint;
-    bool isTeleported = false;
+    //bool isTeleported = false;
 
     public int isMany = 0;
     bool changeScene = false;
@@ -30,9 +30,10 @@ public class PlayerInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tpController = player.GetComponent<ThirdPersonController>();
-        oldMoveSpeed = tpController.MoveSpeed;
-        oldSprintSpeed = tpController.SprintSpeed;
+        player = gameObject;
+        playerController = gameObject.GetComponent<PlayerScripts>();
+        oldMoveSpeed = playerController.playerSpeed;
+        //oldSprintSpeed = playerController.SprintSpeed;
 
         gameManager = GameStartManager.Instance;
     }
@@ -56,16 +57,16 @@ public class PlayerInfo : MonoBehaviour
     {
     }
 
-    public void ChangePlayerSpeed(float newMoveSpeed, float newSprintSpeed)
+    public void ChangePlayerSpeed(float newMoveSpeed)
     {
-        tpController.MoveSpeed = newMoveSpeed;
-        tpController.SprintSpeed = newSprintSpeed;
+        playerController.playerSpeed = newMoveSpeed;
+        //playerController.SprintSpeed = newSprintSpeed;
     }
 
     public void ReturnPlayerSpeed()
     {
-        tpController.MoveSpeed = oldMoveSpeed;
-        tpController.SprintSpeed = oldSprintSpeed;
+        playerController.playerSpeed = oldMoveSpeed;
+        //playerController.SprintSpeed = oldSprintSpeed;
     }
 
     public void PullPlayer(GameObject p, float speed)
@@ -73,14 +74,14 @@ public class PlayerInfo : MonoBehaviour
         magnetPosition = p;
         Debug.Log(magnetPosition);
         pullSpeed = speed;
-        tpController.enabled = false;
+        playerController.enabled = false;
         isMagnet = true;
     }
 
     public void ReleasePlayer()
     {
         isMagnet = false;
-        tpController.enabled = true;
+        playerController.enabled = true;
     }
 
     public void UpdateCheckpoint(Transform p)

@@ -33,7 +33,7 @@ public class Powerup_Shield : MonoBehaviour
         if (other.CompareTag("Player") && !once)
         {
             //OnShield(other.gameObject);
-            player = other.gameObject.transform.parent.gameObject;
+            player = other.gameObject;
             Debug.Log(player);
             material.enabled = false;
             StartCoroutine(OnShield(player));

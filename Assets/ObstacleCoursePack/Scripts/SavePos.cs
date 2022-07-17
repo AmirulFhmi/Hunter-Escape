@@ -16,7 +16,7 @@ public class SavePos : MonoBehaviour
 		{
 			//col.gameObject.GetComponent<CharacterControls>().checkPoint = checkPoint.position;
 
-			player = col.gameObject.transform.parent.gameObject;
+			player = col.gameObject;
 			Debug.Log(player.gameObject);
 			playerInfo = player.GetComponent<PlayerInfo>();
 

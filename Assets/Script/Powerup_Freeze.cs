@@ -19,7 +19,7 @@ public class Powerup_Freeze : MonoBehaviour
 
     [Header("Freeze movement speed")]
     [SerializeField] float moveSpeed = 1f;
-    [SerializeField] float sprintSpeed = 2.5f;
+    //[SerializeField] float sprintSpeed = 2.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +39,7 @@ public class Powerup_Freeze : MonoBehaviour
         if (other.CompareTag("Player") && !thisPlayer && numPowerup < 3){
             //Freeze players
 
-            player = other.gameObject.transform.parent.gameObject;
+            player = other.gameObject;
             playerInfo = player.GetComponent<PlayerInfo>();
 
             if (!playerInfo.hasShield)
@@ -54,7 +54,7 @@ public class Powerup_Freeze : MonoBehaviour
     IEnumerator Freeze(PlayerInfo p)
     {
        
-        p.ChangePlayerSpeed(moveSpeed, sprintSpeed);
+        p.ChangePlayerSpeed(moveSpeed);
         Debug.Log("Freeze on!");
 
         yield return new WaitForSeconds(5f);

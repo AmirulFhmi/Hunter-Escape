@@ -31,7 +31,7 @@ public class RespawnCheckpoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Hit");
-            player = other.gameObject.transform.parent.gameObject;
+            player = other.gameObject;
             playerInfo = player.GetComponent<PlayerInfo>();
 
             playerInfo.RespawnCheckpoint();

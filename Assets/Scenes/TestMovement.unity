@@ -540,6 +540,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestBadger
       objectReference: {fileID: 0}
+    - target: {fileID: 4491179548762831098, guid: 011306fa5bcbdcb44a072c0cb6911155,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4712644203810109798, guid: 011306fa5bcbdcb44a072c0cb6911155,
         type: 3}
       propertyPath: m_RootOrder
@@ -604,6 +609,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1024360616559420456, guid: d98633969ba0e394986d5cd717964d90,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5042710515269189915, guid: d98633969ba0e394986d5cd717964d90,
         type: 3}
       propertyPath: m_Name
@@ -950,6 +960,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestFrog
       objectReference: {fileID: 0}
+    - target: {fileID: 3684338266698856318, guid: 7c2fa2b26e84df44598fe48c4ca50a40,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c2fa2b26e84df44598fe48c4ca50a40, type: 3}
 --- !u!1001 &8060755654402479118
@@ -963,6 +978,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TestRabbit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565681321094495965, guid: d5188fe58e36d85459c11a358b93b54c,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8869811931415854962, guid: d5188fe58e36d85459c11a358b93b54c,
         type: 3}
