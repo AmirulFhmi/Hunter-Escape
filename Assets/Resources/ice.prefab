@@ -60,7 +60,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerup: {fileID: 8037758871217276912}
   moveSpeed: 1
-  sprintSpeed: 2.5
 --- !u!1 &6444136691641874662
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,7 +34,7 @@ public class QualifyNextLevel : MonoBehaviour
 
             if (other.CompareTag("Player"))
             {
-                player = other.gameObject.transform.parent.gameObject;
+                player = other.gameObject;
                 playerInfo = player.GetComponent<PlayerInfo>();
 
                 

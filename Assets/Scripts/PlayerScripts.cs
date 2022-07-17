@@ -26,10 +26,11 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        
         //rb = GetComponent<Rigidbody>();
         if (photonView.IsMine)
         {
+            anim = GetComponent<Animator>();
             username = PlayerPrefs.GetString("username");
             playerNameText.text = username;
             Debug.Log(playerNameText.text);
