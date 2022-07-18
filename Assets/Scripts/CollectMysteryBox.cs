@@ -33,7 +33,9 @@ public class CollectMysteryBox : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            int currentScore;
+            Destroy(gameObject); //this will work after 3 seconds.
+
+            /*int currentScore;
             if (PhotonNetwork.LocalPlayer.CustomProperties["scores"] == null)
             {
                  currentScore = 0;
@@ -51,7 +53,7 @@ public class CollectMysteryBox : MonoBehaviour
 
             gameManager.AddScoreGame(randomScore);
 
-            StartCoroutine(Destroy());
+            StartCoroutine(Destroy());*/
         }
     }
 

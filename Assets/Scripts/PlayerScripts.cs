@@ -23,6 +23,10 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
     public Vector3 camOffset;
     static Animator anim;
 
+    private int totalCoins = 0;
+    public static int totalScore;
+    public TMP_Text coinsText;
+    private int randomScore;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,22 +45,41 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if(collision.gameObject.tag == "Player")
+        /*if(collision.gameObject.tag == "Player")
         {
             if (photonView.IsMine)
             {
                 photonView.RPC("Damage", RpcTarget.All);
             }
+        }*/
+        if (collider.gameObject.tag == "MysteryBox")
+        {
+            
+            if (photonView.IsMine)
+            {
+                Debug.Log("Langgar");
+                photonView.RPC("IncreaseScore", RpcTarget.All);
+
+            }
         }
-        
+
     }
 
     [PunRPC]
     void Damage()
     {
 
+    }
+
+    [PunRPC]
+    void IncreaseScore()
+    {
+        randomScore = Random.Range(5, 50);
+        totalCoins += randomScore;
+        totalScore = totalCoins;
+        Debug.Log(totalCoins);
     }
 
     // Update is called once per frame
@@ -107,6 +130,7 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
 
     private void FixedUpdate()
     {
+        coinsText.text = totalCoins.ToString();
         if (photonView.IsMine)
         {
             //rb.AddForce(new Vector3(x, 0, z)* Speed);
@@ -123,11 +147,13 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(username);
+            stream.SendNext(totalCoins);
         }
         else if (stream.IsReading)
         {
             username = (string)stream.ReceiveNext();
             playerNameText.text = username;
+            totalCoins = (int)stream.ReceiveNext();
         }
     }
 

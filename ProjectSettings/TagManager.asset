@@ -7,6 +7,7 @@ TagManager:
   - chk
   - PlayerCar
   - AICarCollider
+  - MysteryBox
   layers:
   - Default
   - TransparentFX

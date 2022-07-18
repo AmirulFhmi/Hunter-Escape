@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class QualifyNextLevel : MonoBehaviour
+public class QualifyNextLevel : MonoBehaviourPun
 {
     int slot = 0;
     [SerializeField] GameStartManager gameManager;
@@ -28,7 +28,9 @@ public class QualifyNextLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameManager.playerCount <= 3)
+        if (photonView.IsMine)
+        {
+if (gameManager.playerCount <= 3)
         {
             isMany = false;
 
@@ -98,5 +100,7 @@ public class QualifyNextLevel : MonoBehaviour
                 }
             }
         }
+        }
+            
     }
 }

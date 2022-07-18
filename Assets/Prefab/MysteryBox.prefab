@@ -72,9 +72,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1722675974086190530}
+  - component: {fileID: 5824252881782077434}
   m_Layer: 0
   m_Name: MysteryBox
-  m_TagString: Untagged
+  m_TagString: MysteryBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +97,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5824252881782077434
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063770162337791864}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.244595, y: 6.2886653, z: 5.6374574}
+  m_Center: {x: -0.027930876, y: 3.1543524, z: 0.02104591}
 --- !u!1 &2357648117168367638
 GameObject:
   m_ObjectHideFlags: 0

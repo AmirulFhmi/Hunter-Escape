@@ -7840,6 +7840,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MysteryBox
       objectReference: {fileID: 0}
+    - target: {fileID: 1266235464098924617, guid: 1b0298cb01598d147b15939fa9cb8ec6,
+        type: 3}
+      propertyPath: m_TagString
+      value: MysteryBox
+      objectReference: {fileID: 0}
     - target: {fileID: 1934651038416900851, guid: 1b0298cb01598d147b15939fa9cb8ec6,
         type: 3}
       propertyPath: m_RootOrder
