@@ -27,6 +27,10 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
     public static int totalScore;
     public TMP_Text coinsText;
     private int randomScore;
+
+    public GameObject jumpSoundGameObject;
+    public AudioSource jumpAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,8 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
             username = PlayerPrefs.GetString("username");
             playerNameText.text = username;
             Debug.Log(playerNameText.text);
+            jumpSoundGameObject = GameObject.Find("JumpSound");
+            jumpAudio = jumpSoundGameObject.GetComponent<AudioSource>();
         }
         else
         {
@@ -107,6 +113,7 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
             {
                 playerVelocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
                 anim.SetTrigger("Jump");
+                jumpAudio.Play();
             }
 
             if (move.z != 0 || move.x != 0)

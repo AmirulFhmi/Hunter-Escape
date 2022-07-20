@@ -207,7 +207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 8667799765851793080}
   moveSpeed: 3
-  sprintSpeed: 6.5
 --- !u!114 &2577878747626726250
 MonoBehaviour:
   m_ObjectHideFlags: 0
