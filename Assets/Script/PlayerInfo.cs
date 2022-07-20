@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
+using Photon;
+using Photon.Pun;
 using UnityEngine.SceneManagement;
 
-public class PlayerInfo : MonoBehaviour
+public class PlayerInfo : MonoBehaviourPun
 {
     /// <summary>
     /// This script for getting info from player such as player speed, player collider, etc
@@ -30,12 +32,17 @@ public class PlayerInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = gameObject;
-        playerController = gameObject.GetComponent<PlayerScripts>();
-        oldMoveSpeed = playerController.playerSpeed;
-        //oldSprintSpeed = playerController.SprintSpeed;
+        if (photonView.IsMine)
+        {
+            player = gameObject;
+            playerController = gameObject.GetComponent<PlayerScripts>();
+            oldMoveSpeed = playerController.playerSpeed;
+            //oldSprintSpeed = playerController.SprintSpeed;
+            gameManager = GameStartManager.Instance;
 
-        gameManager = GameStartManager.Instance;
+        }
+        
+
     }
 
     // Update is called once per frame
@@ -50,6 +57,7 @@ public class PlayerInfo : MonoBehaviour
         if (gameManager.isChangeScene)
         {
             ChangeScene();
+            //return;
         }
     }
 
@@ -99,11 +107,11 @@ public class PlayerInfo : MonoBehaviour
     {
         if (isMany == 1)
         {
-            SceneManager.LoadScene("Level2");
+            SceneManager.LoadScene("Level2New");
         }
         else if (isMany == 2)
         {
-            SceneManager.LoadScene("Level3");
+            SceneManager.LoadScene("Level3New");
         }
         else if (isMany == 3)
         {

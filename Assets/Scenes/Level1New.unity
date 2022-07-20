@@ -442,7 +442,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e31f3f40a40fb184d91e15e2f30047cb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1500,7 +1500,7 @@ GameObject:
   - component: {fileID: 327465455}
   - component: {fileID: 327465456}
   m_Layer: 5
-  m_Name: Position (TMP) (1)
+  m_Name: Position (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2029,6 +2029,7 @@ MonoBehaviour:
   scorePanel: {fileID: 806895787}
   positionPanel: {fileID: 1691206894}
   playeractualscore: 0
+  position: 0
   gameState: 0
 --- !u!1001 &465826621
 PrefabInstance:
@@ -3400,7 +3401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &806895788
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4301,6 +4302,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishLine
       objectReference: {fileID: 0}
+    - target: {fileID: 3776872930075994442, guid: 6cf22281022380d48867125a203a7c72,
+        type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cf22281022380d48867125a203a7c72, type: 3}
 --- !u!1 &1094862735
@@ -4838,7 +4844,7 @@ GameObject:
   - component: {fileID: 1239644511}
   - component: {fileID: 1239644512}
   m_Layer: 5
-  m_Name: ScorePosition (TMP) (3)
+  m_Name: ScorePosition (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6387,7 +6393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1691206895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7881,7 +7887,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 26754488b9fc4cf46a0abff6e8eb4731, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

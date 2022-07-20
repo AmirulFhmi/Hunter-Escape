@@ -30,6 +30,17 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
 
     public GameObject jumpSoundGameObject;
     public AudioSource jumpAudio;
+    GameStartManager gameManager;
+
+    //panel for player ranking
+    public GameObject rankingPanel;
+    public GameObject rankTextObject;
+    public TMP_Text rankText;
+    public GameObject scoreTextObject;
+    public TMP_Text scoreText;
+
+    //for powerup
+    public PlayerInfo playerInfo;
 
     // Start is called before the first frame update
     void Start()
@@ -44,11 +55,25 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
             Debug.Log(playerNameText.text);
             jumpSoundGameObject = GameObject.Find("JumpSound");
             jumpAudio = jumpSoundGameObject.GetComponent<AudioSource>();
+            gameManager = GameStartManager.Instance;
+
+
+            rankingPanel = GameObject.Find("RankPanel");
+            rankTextObject = GameObject.Find("Position (TMP)");
+            rankText = rankTextObject.GetComponent<TMP_Text>();
+            scoreTextObject = GameObject.Find("ScorePosition (TMP)");
+            scoreText = scoreTextObject.GetComponent<TMP_Text>();
+
+            playerInfo = gameObject.GetComponent<PlayerInfo>();
+
+            rankingPanel.SetActive(false);
+
         }
         else
         {
 
         }
+        
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -68,6 +93,25 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
                 Debug.Log("Langgar");
                 photonView.RPC("IncreaseScore", RpcTarget.All);
 
+            }
+        }
+
+        if (collider.gameObject.tag == "Finish")
+        {
+            if (photonView.IsMine)
+            {
+                scoreText.text = totalCoins.ToString();
+                rankText.text = gameManager.GetNumPosition().ToString();
+                rankingPanel.SetActive(true);
+                StartCoroutine(saveScore());
+            }
+        }
+
+        if(collider.gameObject.tag == "Speed")
+        {
+            if (photonView.IsMine)
+            {
+                StartCoroutine(SpeedUp());
             }
         }
 
@@ -162,6 +206,28 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
             playerNameText.text = username;
             totalCoins = (int)stream.ReceiveNext();
         }
+    }
+
+    public IEnumerator saveScore()
+    {
+        if (photonView.IsMine)
+        {
+            //int totalScore = (int)PhotonNetwork.LocalPlayer.CustomProperties["scores"];
+            yield return new WaitForSeconds(1f);
+            FindObjectOfType<APISystem>().InsertPlayerActivity(PlayerPrefs.GetString("username"), "hunter_escape_point", "add", totalCoins.ToString());
+            //SceneManager.LoadScene("Leaderboard");
+        }
+
+        yield return null;
+    }
+
+    public IEnumerator SpeedUp()
+    {
+        playerInfo.ChangePlayerSpeed(8f);
+        yield return new WaitForSeconds(5f);
+        playerInfo.ReturnPlayerSpeed();
+
+        yield return null;
     }
 
 }

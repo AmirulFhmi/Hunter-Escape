@@ -2226,6 +2226,13 @@ MonoBehaviour:
   Speed: 3
   camOffset: {x: 0, y: 2, z: -6}
   coinsText: {fileID: 1717342025029263709}
+  jumpSoundGameObject: {fileID: 0}
+  jumpAudio: {fileID: 0}
+  rankingPanel: {fileID: 0}
+  rankTextObject: {fileID: 0}
+  rankText: {fileID: 0}
+  scoreTextObject: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!114 &2042586111
 MonoBehaviour:
   m_ObjectHideFlags: 0

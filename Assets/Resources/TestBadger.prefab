@@ -335,6 +335,8 @@ MonoBehaviour:
   Speed: 3
   camOffset: {x: 0, y: 2, z: -6}
   coinsText: {fileID: 8157450346871069368}
+  jumpSoundGameObject: {fileID: 0}
+  jumpAudio: {fileID: 0}
 --- !u!114 &8316361279481375016
 MonoBehaviour:
   m_ObjectHideFlags: 0

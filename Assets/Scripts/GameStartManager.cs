@@ -31,6 +31,9 @@ public class GameStartManager : MonoBehaviour
 
     [SerializeField] int playeractualscore = 0;
 
+    //for player position number
+    public int position = 0;
+
     public enum GameState
     {
         Start,
@@ -80,7 +83,10 @@ public class GameStartManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(position == PhotonNetwork.CurrentRoom.PlayerCount)
+        {
+            StartCoroutine(ChangeScene());
+        }
     }
 
     void CheckGameState()
@@ -174,7 +180,7 @@ public class GameStartManager : MonoBehaviour
 
     public IEnumerator ChangeScene()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(3f);
 
         isChangeScene = true;
 
@@ -187,6 +193,13 @@ public class GameStartManager : MonoBehaviour
         panelPositionText.text = t;
         panelScoreText.text = scoreText.text;
 
+    }
+
+    public int GetNumPosition()
+    {
+        position++;
+
+        return position;
     }
 
     #endregion
