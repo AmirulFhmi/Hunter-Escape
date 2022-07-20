@@ -33,15 +33,16 @@ public class Powerup_Speed : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if(other.CompareTag("Player") && !once)
-        //{
-        //    player = other.gameObject;
-        //    playerInfo = player.GetComponent<PlayerInfo>();
-        //    Debug.Log(player);
-        //    material.enabled = false;
-        //    StartCoroutine(OnSpeed(playerInfo));
-        //    once = true;
-        //}
+        if(other.CompareTag("Player") && !once)
+        {
+            //    player = other.gameObject;
+            //    playerInfo = player.GetComponent<PlayerInfo>();
+            //    Debug.Log(player);
+            //    material.enabled = false;
+            //    StartCoroutine(OnSpeed(playerInfo));
+            once = true;
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator OnSpeed(PlayerInfo p)
