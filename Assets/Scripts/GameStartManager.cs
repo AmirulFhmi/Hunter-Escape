@@ -28,6 +28,7 @@ public class GameStartManager : MonoBehaviour
 
     public GameObject scorePanel;
     public GameObject positionPanel;
+    public bool isStart = false;
 
     [SerializeField] int playeractualscore = 0;
 
@@ -58,11 +59,6 @@ public class GameStartManager : MonoBehaviour
         Debug.Log("Player: "+GameObject.FindGameObjectsWithTag("Player").Length);
         Debug.Log("Room: " + PhotonNetwork.CurrentRoom.PlayerCount);
 
-        //if (GameObject.FindGameObjectsWithTag("Player").Length == PhotonNetwork.CurrentRoom.PlayerCount)
-        //{
-            StartCoroutine(StartTimer());
-        //}
-
         //ChangeGameState(GameState.Start);
 
     }
@@ -87,6 +83,19 @@ public class GameStartManager : MonoBehaviour
         {
             StartCoroutine(ChangeScene());
         }
+
+        if(!isStart)
+        {
+            if (startLine.activeSelf)
+            {
+                if (GameObject.FindGameObjectsWithTag("Player").Length == PhotonNetwork.CurrentRoom.PlayerCount)
+                {
+                    StartCoroutine(StartTimer());
+                    isStart = true;
+                }
+            }
+        }
+        
     }
 
     void CheckGameState()
