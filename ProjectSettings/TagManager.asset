@@ -9,6 +9,7 @@ TagManager:
   - AICarCollider
   - MysteryBox
   - Wall
+  - Speed
   layers:
   - Default
   - TransparentFX

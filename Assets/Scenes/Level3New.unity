@@ -1889,7 +1889,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 26754488b9fc4cf46a0abff6e8eb4731, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2728,6 +2728,7 @@ MonoBehaviour:
   scorePanel: {fileID: 1736280030}
   positionPanel: {fileID: 1960759902}
   playeractualscore: 0
+  position: 0
   gameState: 0
 --- !u!4 &440149834
 Transform:
@@ -8144,7 +8145,7 @@ GameObject:
   - component: {fileID: 1027209328}
   - component: {fileID: 1027209329}
   m_Layer: 5
-  m_Name: Position (TMP) (1)
+  m_Name: Position (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10366,7 +10367,7 @@ GameObject:
   - component: {fileID: 1322101796}
   - component: {fileID: 1322101797}
   m_Layer: 5
-  m_Name: ScorePosition (TMP) (3)
+  m_Name: ScorePosition (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13615,7 +13616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1736280031
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16342,7 +16343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1960759903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16676,7 +16677,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e31f3f40a40fb184d91e15e2f30047cb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -17699,6 +17700,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lvl3FinishLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440863842268816194, guid: 9fb5d09d5c2dc5249b5f17cc60f524a2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Finish
       objectReference: {fileID: 0}
     - target: {fileID: 6645457693824357920, guid: 9fb5d09d5c2dc5249b5f17cc60f524a2,
         type: 3}

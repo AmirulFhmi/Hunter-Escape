@@ -1168,7 +1168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &201436946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2566,7 +2566,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 26754488b9fc4cf46a0abff6e8eb4731, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6736,6 +6736,7 @@ MonoBehaviour:
   scorePanel: {fileID: 1497008797}
   positionPanel: {fileID: 201436945}
   playeractualscore: 0
+  position: 0
   gameState: 0
 --- !u!4 &881074207
 Transform:
@@ -9032,7 +9033,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9d793096a3599284380bf49ef82a591f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d793096a3599284380bf49ef82a591f,
         type: 3}
@@ -10147,7 +10148,7 @@ GameObject:
   - component: {fileID: 1284277475}
   - component: {fileID: 1284277476}
   m_Layer: 5
-  m_Name: ScorePosition (TMP) (3)
+  m_Name: ScorePosition (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12497,7 +12498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1497008798
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13225,7 +13226,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e31f3f40a40fb184d91e15e2f30047cb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13557,7 +13558,7 @@ GameObject:
   - component: {fileID: 1613294184}
   - component: {fileID: 1613294185}
   m_Layer: 5
-  m_Name: Position (TMP) (1)
+  m_Name: Position (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19085,7 +19086,7 @@ PrefabInstance:
     - target: {fileID: 2627738152439845443, guid: aaf65f63400a01249a93d7d8291a91e7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 2627738152439845443, guid: aaf65f63400a01249a93d7d8291a91e7,
         type: 3}
@@ -19146,6 +19147,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lvl2FinishLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336152640052132682, guid: aaf65f63400a01249a93d7d8291a91e7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Finish
       objectReference: {fileID: 0}
     - target: {fileID: 7811742192987427480, guid: aaf65f63400a01249a93d7d8291a91e7,
         type: 3}

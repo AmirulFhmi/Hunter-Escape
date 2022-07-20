@@ -2233,6 +2233,7 @@ MonoBehaviour:
   rankText: {fileID: 0}
   scoreTextObject: {fileID: 0}
   scoreText: {fileID: 0}
+  playerInfo: {fileID: 0}
 --- !u!114 &2042586111
 MonoBehaviour:
   m_ObjectHideFlags: 0
