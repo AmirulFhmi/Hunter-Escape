@@ -102,7 +102,9 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
             if (photonView.IsMine)
             {
                 scoreText.text = totalCoins.ToString();
-                rankText.text = gameManager.GetNumPosition().ToString();
+                //rankText.text = gameManager.GetNumPosition().ToString();
+                photonView.RPC("AddPosition", RpcTarget.All);
+                rankText.text = gameManager.position.ToString();
                 rankingPanel.SetActive(true);
                 StartCoroutine(saveScore());
             }
@@ -121,7 +123,7 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
     [PunRPC]
     void Damage()
     {
-
+        
     }
 
     [PunRPC]
@@ -131,6 +133,12 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
         totalCoins += randomScore;
         totalScore = totalCoins;
         Debug.Log(totalCoins);
+    }
+
+    [PunRPC]
+    void AddPosition()
+    {
+        gameManager.GetNumPosition();
     }
 
     // Update is called once per frame
