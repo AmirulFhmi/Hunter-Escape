@@ -55,7 +55,7 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
             Debug.Log(playerNameText.text);
             jumpSoundGameObject = GameObject.Find("JumpSound");
             jumpAudio = jumpSoundGameObject.GetComponent<AudioSource>();
-            gameManager = GameStartManager.Instance;
+            
 
 
             rankingPanel = GameObject.Find("RankPanel");
@@ -73,7 +73,8 @@ public class PlayerScripts : MonoBehaviourPun, IPunObservable
         {
 
         }
-        
+        gameManager = GameStartManager.Instance;
+
     }
 
     private void OnTriggerEnter(Collider collider)

@@ -38,10 +38,10 @@ public class PlayerInfo : MonoBehaviourPun
             playerController = gameObject.GetComponent<PlayerScripts>();
             oldMoveSpeed = playerController.playerSpeed;
             //oldSprintSpeed = playerController.SprintSpeed;
-            gameManager = GameStartManager.Instance;
+            
 
         }
-        
+        gameManager = GameStartManager.Instance;
 
     }
 
